@@ -1,0 +1,22 @@
+/* 通用页面容器样式 */
+.page {
+  background: #fff;                             /* 白色背景 */
+  padding: 24px;                                /* 内边距 */
+  border-radius: 8px;                           /* 圆角边框 */
+  box-shadow: var(--shadow);                    /* 应用阴影效果变量 */
+  min-height: calc(100vh - 48px);              /* 最小高度计算，减去上下各24px的内边距 */
+}
+
+/* 页面标题样式 */
+.page h1 {
+  font-size: 28px;              /* 字体大小 */
+  margin-bottom: 16px;           /* 下外边距 */
+  color: var(--text-color);     /* 文字颜色 */
+}
+
+/* 页面段落样式 */
+.page p {
+  font-size: 16px;                    /* 字体大小 */
+  color: var(--text-secondary);       /* 次要文字颜色 */
+  line-height: 1.6;                   /* 行高 */
+}

@@ -1,0 +1,208 @@
+/* 侧边栏菜单基础样式 */
+.menu-bar {
+  position: fixed;              /* 固定定位，相对于视口定位 */
+  left: 0;                     /* 定位到视口左侧 */
+  top: 0;                      /* 定位到视口顶部 */
+  width: 250px;                /* 菜单宽度 */
+  height: 100vh;               /* 菜单高度占满视口 */
+  background-color: var(--menu-bg);  /* 应用菜单背景色变量 */
+  color: var(--menu-text);     /* 应用菜单文字色变量 */
+  display: flex;               /* 使用弹性盒子布局 */
+  flex-direction: column;      /* 垂直方向排列子元素 */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);  /* 右侧阴影效果 */
+  transition: width 0.3s ease;  /* 宽度变化时的过渡动画 */
+  z-index: 1000;               /* 层叠顺序，确保在最上层 */
+}
+
+/* 菜单折叠时的样式 */
+.menu-bar.collapsed {
+  width: 80px;  /* 折叠时的宽度 */
+}
+
+/* 菜单头部样式 */
+.menu-header {
+  display: flex;                    /* 弹性盒子布局 */
+  align-items: center;              /* 垂直居中对齐 */
+  justify-content: space-between;   /* 两端对齐，中间保持最大间距 */
+  padding: 16px 20px;               /* 内边距 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);  /* 底部边框 */
+  min-height: 64px;                 /* 最小高度 */
+}
+
+/* 菜单标题样式 */
+.menu-title {
+  font-size: 18px;      /* 字体大小 */
+  font-weight: 600;     /* 字体粗细 */
+  color: #fff;          /* 白色文字 */
+  white-space: nowrap;  /* 不换行 */
+  overflow: hidden;     /* 隐藏溢出内容 */
+}
+
+/* 菜单切换按钮样式 */
+.menu-toggle {
+  background: none;                         /* 无背景色 */
+  border: none;                            /* 无边框 */
+  color: var(--menu-text);                 /* 文字颜色 */
+  font-size: 20px;                        /* 字体大小 */
+  cursor: pointer;                        /* 鼠标指针样式 */
+  padding: 4px 8px;                       /* 内边距 */
+  border-radius: 4px;                     /* 圆角 */
+  transition: background-color 0.2s;      /* 背景色过渡动画 */
+  flex-shrink: 0;                         /* 不收缩 */
+}
+
+/* 按钮悬停效果 */
+.menu-toggle:hover {
+  background-color: var(--menu-hover);  /* 悬停时的背景色 */
+}
+
+/* 菜单导航区域样式 */
+.menu-nav {
+  flex: 1;                    /* 弹性盒子自动伸缩，占据剩余空间 */
+  overflow-y: auto;           /* 垂直方向超出时显示滚动条 */
+  padding: 16px 0;            /* 上下内边距 */
+}
+
+/* 菜单列表样式 */
+.menu-list {
+  list-style: none;  /* 移除默认列表符号 */
+  padding: 0;        /* 移除默认内边距 */
+}
+
+/* 菜单项容器样式 */
+.menu-list li {
+  margin: 4px 0;  /* 上下外边距 */
+}
+
+/* 菜单项链接样式 */
+.menu-item {
+  display: flex;                /* 弹性盒子布局 */
+  align-items: center;          /* 垂直居中对齐 */
+  padding: 12px 20px;           /* 内边距 */
+  color: var(--menu-text);     /* 文字颜色 */
+  text-decoration: none;        /* 无下划线 */
+  transition: all 0.2s;         /* 所有属性变化的过渡动画 */
+  position: relative;           /* 相对定位 */
+  white-space: nowrap;          /* 不换行 */
+}
+
+/* 菜单项悬停效果 */
+.menu-item:hover {
+  background-color: var(--menu-hover);  /* 悬停时的背景色 */
+  color: #fff;                          /* 悬停时的白色文字 */
+}
+
+/* 激活状态的菜单项样式 */
+.menu-item.active {
+  background-color: var(--menu-active);  /* 激活时的背景色 */
+  color: #fff;                           /* 激活时的白色文字 */
+}
+
+/* 激活状态菜单项的左侧指示器 */
+.menu-item.active::before {
+  content: '';                             /* 伪元素内容为空 */
+  position: absolute;                      /* 绝对定位 */
+  left: 0;                                /* 定位到左侧 */
+  top: 0;                                 /* 定位到顶部 */
+  bottom: 0;                              /* 定位到底部 */
+  width: 3px;                             /* 指示器宽度 */
+  background-color: #fff;                 /* 指示器颜色 */
+}
+
+/* 菜单图标样式 */
+.menu-icon {
+  font-size: 20px;      /* 图标大小 */
+  margin-right: 12px;   /* 右外边距 */
+  flex-shrink: 0;       /* 不收缩 */
+  width: 24px;          /* 固定宽度 */
+  text-align: center;   /* 文字居中 */
+}
+
+/* 菜单标签样式 */
+.menu-label {
+  font-size: 14px;      /* 字体大小 */
+  font-weight: 500;     /* 字体粗细 */
+}
+
+/* 父级菜单项样式 */
+.menu-parent-item {
+  position: relative;   /* 相对定位 */
+}
+
+/* 子菜单列表样式 */
+.submenu-list {
+  list-style: none;    /* 移除默认列表符号 */
+  padding-left: 20px;   /* 左内边距，形成缩进效果 */
+  margin-top: 4px;      /* 与父菜单项的间距 */
+}
+
+/* 子菜单项样式 */
+.submenu-item {
+  margin: 2px 0;        /* 子菜单项上下间距 */
+}
+
+/* 菜单箭头样式 - 用于展开/收起指示 */
+.menu-arrow {
+  margin-left: auto;    /* 推到右侧 */
+  font-size: 12px;      /* 箭头图标大小 */
+  transition: transform 0.2s ease;  /* 旋转过渡效果 */
+}
+
+/* 展开状态下的菜单项样式 */
+.menu-item.expanded .menu-arrow {
+  transform: rotate(180deg);  /* 箭头向上旋转 */
+}
+
+/* 折叠状态下菜单项的样式 */
+.menu-bar.collapsed .menu-item {
+  justify-content: center;  /* 内容居中对齐 */
+  padding: 12px;            /* 内边距调整 */
+}
+
+/* 折叠状态下菜单图标的样式 */
+.menu-bar.collapsed .menu-icon {
+  margin-right: 0;  /* 移除右外边距 */
+}
+
+/* 折叠状态下隐藏菜单标题 */
+.menu-bar.collapsed .menu-title {
+  display: none;  /* 隐藏元素 */
+}
+
+/* 折叠状态下隐藏子菜单 */
+.menu-bar.collapsed .submenu-list {
+  display: none;  /* 隐藏子菜单 */
+}
+
+/* 滚动条样式 - Webkit 内核浏览器 */
+.menu-nav::-webkit-scrollbar {
+  width: 6px;  /* 滚动条宽度 */
+}
+
+/* 滚动条轨道样式 */
+.menu-nav::-webkit-scrollbar-track {
+  background: transparent;  /* 透明轨道 */
+}
+
+/* 滚动条滑块样式 */
+.menu-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);  /* 滑块颜色 */
+  border-radius: 3px;                    /* 圆角 */
+}
+
+/* 滚动条滑块悬停样式 */
+.menu-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);  /* 悬停时的颜色 */
+}
+
+/* 响应式设计：当屏幕宽度小于等于768px时 */
+@media (max-width: 768px) {
+  .menu-bar {
+    transform: translateX(-100%);  /* 默认隐藏在屏幕左侧 */
+  }
+  
+  .menu-bar.collapsed {
+    transform: translateX(0);  /* 展开时回到正常位置 */
+    width: 80px;              /* 折叠时的宽度 */
+  }
+}

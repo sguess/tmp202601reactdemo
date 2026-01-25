@@ -1,0 +1,34 @@
+/* 布局容器样式，使用弹性盒子布局 */
+.layout {
+  display: flex;            /* 设置为弹性盒子布局 */
+  width: 100%;              /* 占满父容器宽度 */
+  height: 100vh;            /* 占满视口高度 */
+  overflow: hidden;         /* 隐藏溢出内容 */
+}
+
+/* 主内容区域样式 */
+.main-content {
+  flex: 1;                      /* 弹性盒子自动伸缩，占据剩余空间 */
+  margin-left: 250px;           /* 左外边距，为侧边栏留出空间 */
+  padding: 24px;                /* 内边距，内容与边界的距离 */
+  overflow-y: auto;             /* 垂直方向超出时显示滚动条 */
+  /* margin-left 变化时的过渡动画 */
+  transition: margin-left 0.3s ease;
+  background-color: var(--bg-color);  /* 应用全局背景色变量 */
+}
+
+/* 当菜单折叠时的主内容区域样式 */
+.main-content.collapsed {
+  margin-left: 80px;  /* 减少左外边距，适应折叠后的侧边栏宽度 */
+}
+
+/* 响应式设计：当屏幕宽度小于等于768px时 */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;  /* 移动设备上不预留侧边栏空间 */
+  }
+  
+  .main-content.collapsed {
+    margin-left: 0;  /* 移动设备上不预留侧边栏空间 */
+  }
+}
