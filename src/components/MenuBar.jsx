@@ -38,6 +38,21 @@ function MenuBar({ isCollapsed, onToggle }) {
         { path: '/profile/preferences', label: '偏好设置', icon: '⚙️' },
       ]
     },
+    // API示例菜单包含子菜单
+    {
+      label: 'API示例',
+      icon: '🔌',
+      children: [
+        { path: '/api/get', label: 'GET请求示例', icon: '📥' },
+        { path: '/api/post', label: 'POST请求示例', icon: '📤' },
+        { path: '/api/put', label: 'PUT请求示例', icon: '🔄' },
+        { path: '/api/delete', label: 'DELETE请求示例', icon: '🗑️' },
+      ]
+    },
+    // 表格示例菜单项
+    { path: '/table', label: '表格示例', icon: '📋' },
+    // 高级表格示例菜单项
+    { path: '/advanced-table', label: '高级表格示例', icon: '📊' },
   ]
 
   // 切换菜单展开状态的函数

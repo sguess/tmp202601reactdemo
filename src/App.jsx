@@ -14,6 +14,15 @@ import SecuritySettings from './pages/SecuritySettings'
 import AccountSettings from './pages/AccountSettings'
 import UserProfileEdit from './pages/UserProfileEdit'
 import UserPreferences from './pages/UserPreferences'
+// 导入API示例页面组件
+import GetExample from './pages/api/GetExample'
+import PostExample from './pages/api/PostExample'
+import PutExample from './pages/api/PutExample'
+import DeleteExample from './pages/api/DeleteExample'
+// 导入表格示例页面组件
+import TableExample from './pages/TableExample'
+// 导入高级表格示例页面组件
+import AdvancedTableExample from './pages/AdvancedTableExample'
 
 // 主应用组件 - 整个应用的入口点
 function App() {
@@ -38,6 +47,15 @@ function App() {
         <Route path="/profile/edit" element={<UserProfileEdit />} />
         {/* 新增的偏好设置路由 */}
         <Route path="/profile/preferences" element={<UserPreferences />} />
+        {/* API示例路由 */}
+        <Route path="/api/get" element={<GetExample />} />
+        <Route path="/api/post" element={<PostExample />} />
+        <Route path="/api/put" element={<PutExample />} />
+        <Route path="/api/delete" element={<DeleteExample />} />
+        {/* 表格示例路由 */}
+        <Route path="/table" element={<TableExample />} />
+        {/* 高级表格示例路由 */}
+        <Route path="/advanced-table" element={<AdvancedTableExample />} />
       </Routes>
     </Layout>
   )
